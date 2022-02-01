@@ -522,6 +522,7 @@ public class Registation extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         new Login().setVisible(true);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton_registationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registationBtnActionPerformed
@@ -535,13 +536,13 @@ public class Registation extends javax.swing.JFrame {
            p.setString(2, jTextField_user_id_reg.getText());
            p.setString(3, jTextField_user_phone_reg.getText());
             p.setString(4, jTextField_user_mail.getText());
-           
-            p.setString(5, jPasswordField_reg_pass.getText());
+            p.setString(5, jPasswordField_reg_pass.getText());         
             p.executeUpdate();
            JOptionPane.showMessageDialog(this," is succesfully registation" );
             
             
         }catch(Exception e){
+            JOptionPane.showMessageDialog(this," user name not availale" );
         }
     }//GEN-LAST:event_jButton_registationBtnActionPerformed
 

@@ -397,9 +397,9 @@ public class Login extends javax.swing.JFrame {
             r=p.executeQuery();
             
           if(r.next()){
-              JOptionPane.showMessageDialog(this," is succesfully registation" );
-           jTextField_user_name.setText("");
-            jPasswordField_password.setText(""); 
+               this.setVisible(false);
+                 new after_login().setVisible(true);
+              
           }else{
                JOptionPane.showMessageDialog(this," User name or Password Incorrect" );
           }
