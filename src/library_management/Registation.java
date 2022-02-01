@@ -26,6 +26,7 @@ public class Registation extends javax.swing.JFrame {
     public Registation() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -56,7 +57,7 @@ public class Registation extends javax.swing.JFrame {
         jTextField_user_mail = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
         jPasswordField_reg_pass = new javax.swing.JPasswordField();
-        jComboBox1_role = new javax.swing.JComboBox<>();
+        jComboBox1_role_reg = new javax.swing.JComboBox<>();
         jButton_registationBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -64,11 +65,14 @@ public class Registation extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel_main_panel.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_main_panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 209), 2));
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 209));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 209)));
@@ -108,7 +112,7 @@ public class Registation extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(84, 84, 84))
         );
@@ -152,7 +156,7 @@ public class Registation extends javax.swing.JFrame {
                     .addGroup(jPanel_headerLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         jPanel_headerLayout.setVerticalGroup(
             jPanel_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,8 +274,13 @@ public class Registation extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1_role.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
-        jComboBox1_role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Role", "Authore", "Student", "Teacher" }));
+        jComboBox1_role_reg.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
+        jComboBox1_role_reg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Role", "Author", "Student", "Teacher" }));
+        jComboBox1_role_reg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1_role_regActionPerformed(evt);
+            }
+        });
 
         jButton_registationBtn.setFont(new java.awt.Font("Unispace", 3, 14)); // NOI18N
         jButton_registationBtn.setForeground(new java.awt.Color(0, 204, 209));
@@ -294,7 +303,7 @@ public class Registation extends javax.swing.JFrame {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/library_management/icon/lock-7-16.png"))); // NOI18N
 
         jButton2.setFont(new java.awt.Font("Unispace", 2, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 102, 102));
+        jButton2.setForeground(new java.awt.Color(0, 204, 209));
         jButton2.setText("Login Page");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -303,6 +312,9 @@ public class Registation extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel11.setText("Go to :");
 
         javax.swing.GroupLayout jPanel_main_panelLayout = new javax.swing.GroupLayout(jPanel_main_panel);
         jPanel_main_panel.setLayout(jPanel_main_panelLayout);
@@ -337,13 +349,19 @@ public class Registation extends javax.swing.JFrame {
                                     .addComponent(jSeparator7)
                                     .addComponent(jPasswordField_reg_pass)
                                     .addComponent(jButton_registationBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1_role, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jComboBox1_role_reg, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel_main_panelLayout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(41, 41, 41)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_main_panelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel11)
+                        .addGap(0, 0, 0)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(138, 138, 138))))
         );
         jPanel_main_panelLayout.setVerticalGroup(
             jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,12 +401,16 @@ public class Registation extends javax.swing.JFrame {
                         .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1_role, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_registationBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox1_role_reg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(31, 31, 31))
+                .addComponent(jButton_registationBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -530,21 +552,36 @@ public class Registation extends javax.swing.JFrame {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/library_management","root","");
-            String sql="INSERT INTO `registation`(`username`, `userid`, `phone`, `gmail`, `pass`) VALUES (?,?,?,?,?)";
+            String sql="INSERT INTO `registation`(`username`, `userid`, `phone`, `gmail`, `pass`, `Rule`) VALUES (?,?,?,?,?,?)";
             p=con.prepareStatement(sql);
             p.setString(1, jTextField_user_name_reg.getText());
            p.setString(2, jTextField_user_id_reg.getText());
            p.setString(3, jTextField_user_phone_reg.getText());
             p.setString(4, jTextField_user_mail.getText());
-            p.setString(5, jPasswordField_reg_pass.getText());         
+            p.setString(5, jPasswordField_reg_pass.getText()); 
+             String selectvalue=jComboBox1_role_reg.getSelectedItem().toString();
+            p.setString(6,selectvalue ); 
+           
+            
             p.executeUpdate();
            JOptionPane.showMessageDialog(this," is succesfully registation" );
             
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(this," user name not availale" );
+            
+           
+            
+             JOptionPane.showMessageDialog(this," user name not availale or other input is incorrect" );
+            
+            
         }
     }//GEN-LAST:event_jButton_registationBtnActionPerformed
+
+    private void jComboBox1_role_regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1_role_regActionPerformed
+        // TODO add your handling code here:
+        String selectvalue=jComboBox1_role_reg.getSelectedItem().toString();
+        System.out.println(selectvalue);
+    }//GEN-LAST:event_jComboBox1_role_regActionPerformed
 
     /**
      * @param args the command line arguments
@@ -584,9 +621,10 @@ public class Registation extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton_registationBtn;
-    private javax.swing.JComboBox<String> jComboBox1_role;
+    private javax.swing.JComboBox<String> jComboBox1_role_reg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -601,6 +639,7 @@ public class Registation extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField_reg_pass;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
