@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package library_management;
+import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Connection;
@@ -26,6 +27,17 @@ public class Registation extends javax.swing.JFrame {
     public Registation() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jPanel_header.setBackground(new java.awt.Color(0,0,0,0));
+        jTextField_user_name_reg.setBackground(new java.awt.Color(0,0,0,0));
+        jTextField_user_id_reg.setBackground(new java.awt.Color(0,0,0,0));
+      jTextField_user_phone_reg.setBackground(new java.awt.Color(0,0,0,0));
+              jTextField_user_mail.setBackground(new java.awt.Color(0,0,0,0));
+                      jPasswordField_reg_pass.setBackground(new java.awt.Color(0,0,0,0));
+                      jLabel7.setBackground(new java.awt.Color(0,0,0,0));
+                      background2.setBackground(new java.awt.Color(0,0,0,140));
+                      jButton2.setBackground(new java.awt.Color(0,0,0,3));
+                     // usernameErrror.setBackground(new java.awt.Color(0,0,0,0));
+                      
         
     }
 
@@ -64,15 +76,18 @@ public class Registation extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
+        background2 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel_main_panel.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_main_panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 209), 2));
+        jPanel_main_panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 209)));
+        jPanel_main_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 209));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 209)));
@@ -103,7 +118,7 @@ public class Registation extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(jLabel4)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,12 +127,15 @@ public class Registation extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(84, 84, 84))
         );
 
+        jPanel_main_panel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, -1, 520));
+
         jPanel_header.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Unispace", 1, 18)); // NOI18N
@@ -125,6 +143,7 @@ public class Registation extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Registation");
         jLabel7.setOpaque(true);
+        jPanel_header.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 49, 141, 35));
 
         jLabel8.setBackground(new java.awt.Color(255, 102, 102));
         jLabel8.setFont(new java.awt.Font("Unispace", 1, 18)); // NOI18N
@@ -136,39 +155,17 @@ public class Registation extends javax.swing.JFrame {
                 jLabel8MouseClicked(evt);
             }
         });
+        jPanel_header.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 13, 21, -1));
 
         jSeparator4.setBackground(new java.awt.Color(0, 204, 209));
         jSeparator4.setForeground(new java.awt.Color(0, 204, 209));
         jSeparator4.setOpaque(true);
+        jPanel_header.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 91, 123, 1));
 
-        javax.swing.GroupLayout jPanel_headerLayout = new javax.swing.GroupLayout(jPanel_header);
-        jPanel_header.setLayout(jPanel_headerLayout);
-        jPanel_headerLayout.setHorizontalGroup(
-            jPanel_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_headerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanel_headerLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addGroup(jPanel_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel_headerLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(129, Short.MAX_VALUE))
-        );
-        jPanel_headerLayout.setVerticalGroup(
-            jPanel_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_headerLayout.createSequentialGroup()
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                .addGap(25, 25, 25))
-        );
+        jPanel_main_panel.add(jPanel_header, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 2, -1, -1));
 
+        jTextField_user_name_reg.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jTextField_user_name_reg.setForeground(new java.awt.Color(255, 255, 255));
         jTextField_user_name_reg.setText("User Name");
         jTextField_user_name_reg.setBorder(null);
         jTextField_user_name_reg.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -186,15 +183,20 @@ public class Registation extends javax.swing.JFrame {
                 jTextField_user_name_regActionPerformed(evt);
             }
         });
+        jPanel_main_panel.add(jTextField_user_name_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 137, 189, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 204, 209));
         jSeparator1.setForeground(new java.awt.Color(0, 204, 209));
         jSeparator1.setOpaque(true);
+        jPanel_main_panel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 160, 189, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 204, 209));
         jSeparator2.setForeground(new java.awt.Color(0, 204, 209));
         jSeparator2.setOpaque(true);
+        jPanel_main_panel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 203, 189, -1));
 
+        jTextField_user_id_reg.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jTextField_user_id_reg.setForeground(new java.awt.Color(255, 255, 255));
         jTextField_user_id_reg.setText("User Id");
         jTextField_user_id_reg.setBorder(null);
         jTextField_user_id_reg.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -212,7 +214,10 @@ public class Registation extends javax.swing.JFrame {
                 jTextField_user_id_regActionPerformed(evt);
             }
         });
+        jPanel_main_panel.add(jTextField_user_id_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 180, 189, -1));
 
+        jTextField_user_phone_reg.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jTextField_user_phone_reg.setForeground(new java.awt.Color(255, 255, 255));
         jTextField_user_phone_reg.setText("Phone");
         jTextField_user_phone_reg.setBorder(null);
         jTextField_user_phone_reg.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -230,15 +235,20 @@ public class Registation extends javax.swing.JFrame {
                 jTextField_user_phone_regActionPerformed(evt);
             }
         });
+        jPanel_main_panel.add(jTextField_user_phone_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 223, 189, -1));
 
         jSeparator5.setBackground(new java.awt.Color(0, 204, 209));
         jSeparator5.setForeground(new java.awt.Color(0, 204, 209));
         jSeparator5.setOpaque(true);
+        jPanel_main_panel.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 246, 189, -1));
 
         jSeparator6.setBackground(new java.awt.Color(0, 204, 209));
         jSeparator6.setForeground(new java.awt.Color(0, 204, 209));
         jSeparator6.setOpaque(true);
+        jPanel_main_panel.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 289, 189, -1));
 
+        jTextField_user_mail.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jTextField_user_mail.setForeground(new java.awt.Color(255, 255, 255));
         jTextField_user_mail.setText("Gmail");
         jTextField_user_mail.setBorder(null);
         jTextField_user_mail.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -256,11 +266,15 @@ public class Registation extends javax.swing.JFrame {
                 jTextField_user_mailActionPerformed(evt);
             }
         });
+        jPanel_main_panel.add(jTextField_user_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 266, 189, -1));
 
         jSeparator7.setBackground(new java.awt.Color(0, 204, 209));
         jSeparator7.setForeground(new java.awt.Color(0, 204, 209));
         jSeparator7.setOpaque(true);
+        jPanel_main_panel.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 326, 189, -1));
 
+        jPasswordField_reg_pass.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jPasswordField_reg_pass.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField_reg_pass.setText("72542");
         jPasswordField_reg_pass.setBorder(null);
         jPasswordField_reg_pass.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -273,6 +287,7 @@ public class Registation extends javax.swing.JFrame {
                 jPasswordField_reg_passMouseClicked(evt);
             }
         });
+        jPanel_main_panel.add(jPasswordField_reg_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 304, 189, -1));
 
         jComboBox1_role_reg.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
         jComboBox1_role_reg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Role", "Author", "Student", "Teacher" }));
@@ -281,270 +296,81 @@ public class Registation extends javax.swing.JFrame {
                 jComboBox1_role_regActionPerformed(evt);
             }
         });
+        jPanel_main_panel.add(jComboBox1_role_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 335, 189, 30));
 
         jButton_registationBtn.setFont(new java.awt.Font("Unispace", 3, 14)); // NOI18N
         jButton_registationBtn.setForeground(new java.awt.Color(0, 204, 209));
         jButton_registationBtn.setText("Registation");
+        jButton_registationBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 209), 1, true));
         jButton_registationBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton_registationBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_registationBtnActionPerformed(evt);
             }
         });
+        jPanel_main_panel.add(jButton_registationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 383, 189, 38));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/library_management/icon/student-16.png"))); // NOI18N
+        jPanel_main_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 137, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/library_management/icon/user-16.png"))); // NOI18N
+        jPanel_main_panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 180, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/library_management/icon/phone-42-16.png"))); // NOI18N
+        jPanel_main_panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 223, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/library_management/icon/gmail-login-16.png"))); // NOI18N
+        jPanel_main_panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 266, -1, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/library_management/icon/lock-7-16.png"))); // NOI18N
+        jPanel_main_panel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 304, -1, -1));
+        jPanel_main_panel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 428, 315, 10));
 
-        jButton2.setFont(new java.awt.Font("Unispace", 2, 12)); // NOI18N
+        background2.setBackground(new java.awt.Color(255, 255, 255));
+        background2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton2.setFont(new java.awt.Font("Unispace", 2, 8)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 204, 209));
         jButton2.setText("Login Page");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setBorder(null);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        background2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 60, 20));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Go to :");
+        background2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, -1, 20));
 
-        javax.swing.GroupLayout jPanel_main_panelLayout = new javax.swing.GroupLayout(jPanel_main_panel);
-        jPanel_main_panel.setLayout(jPanel_main_panelLayout);
-        jPanel_main_panelLayout.setHorizontalGroup(
-            jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_main_panelLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_main_panelLayout.createSequentialGroup()
-                        .addGroup(jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_main_panelLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel_header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel_main_panelLayout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addGroup(jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField_user_name_reg)
-                                    .addComponent(jSeparator1)
-                                    .addComponent(jSeparator2)
-                                    .addComponent(jTextField_user_id_reg, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                                    .addComponent(jTextField_user_phone_reg, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                                    .addComponent(jSeparator5)
-                                    .addComponent(jSeparator6)
-                                    .addComponent(jTextField_user_mail, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                                    .addComponent(jSeparator7)
-                                    .addComponent(jPasswordField_reg_pass)
-                                    .addComponent(jButton_registationBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1_role_reg, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(jPanel_main_panelLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_main_panelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel11)
-                        .addGap(0, 0, 0)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(138, 138, 138))))
-        );
-        jPanel_main_panelLayout.setVerticalGroup(
-            jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel_main_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField_user_name_reg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField_user_id_reg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField_user_phone_reg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField_user_mail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_main_panelLayout.createSequentialGroup()
-                        .addComponent(jPasswordField_reg_pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1_role_reg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_registationBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel_main_panel.add(background2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 340, 490));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background/background-2.jpg"))); // NOI18N
+        jPanel_main_panel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, -4, 370, 520));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel_main_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel_main_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel_main_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel_main_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jLabel8MouseClicked
-
-    private void jTextField_user_name_regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_user_name_regActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_user_name_regActionPerformed
-
-    private void jTextField_user_name_regMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_user_name_regMouseClicked
-        // TODO add your handling code here:
-         String uservalue = jTextField_user_name_reg.getText().trim().toLowerCase();
-        if(uservalue.equals("user name") || uservalue.equals("") )
-        { 
-            jTextField_user_name_reg.setText(""); 
-        }
-    }//GEN-LAST:event_jTextField_user_name_regMouseClicked
-
-    private void jTextField_user_id_regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_user_id_regActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_user_id_regActionPerformed
-
-    private void jTextField_user_id_regMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_user_id_regMouseClicked
-        // TODO add your handling code here:
-         String uservalue = jTextField_user_id_reg.getText().trim().toLowerCase();
-        if(uservalue.equals("user id") || uservalue.equals("") )
-        { 
-            jTextField_user_id_reg.setText(""); 
-        }
-    }//GEN-LAST:event_jTextField_user_id_regMouseClicked
-
-    private void jTextField_user_phone_regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_user_phone_regActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jTextField_user_phone_regActionPerformed
-
-    private void jTextField_user_mailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_user_mailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_user_mailActionPerformed
-
-    private void jTextField_user_phone_regMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_user_phone_regMouseClicked
-        // TODO add your handling code here:
-         String uservalue = jTextField_user_phone_reg.getText().trim().toLowerCase();
-        if(uservalue.equals("phone") || uservalue.equals("") )
-        { 
-            jTextField_user_phone_reg.setText(""); 
-        }
-    }//GEN-LAST:event_jTextField_user_phone_regMouseClicked
-
-    private void jTextField_user_mailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_user_mailMouseClicked
-        // TODO add your handling code here:
-        String uservalue = jTextField_user_mail.getText().trim().toLowerCase();
-        if(uservalue.equals("gmail") || uservalue.equals("") )
-        { 
-            jTextField_user_mail.setText(""); 
-        }
-    }//GEN-LAST:event_jTextField_user_mailMouseClicked
-
-    private void jPasswordField_reg_passMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField_reg_passMouseClicked
-        // TODO add your handling code here:
-        String userpass=String.valueOf(jPasswordField_reg_pass.getPassword());
-        if(userpass.equals("72542") || userpass.equals(""))
-        {
-           jPasswordField_reg_pass.setText("");
-        }
-    }//GEN-LAST:event_jPasswordField_reg_passMouseClicked
-
-    private void jPasswordField_reg_passFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField_reg_passFocusLost
-        // TODO add your handling code here:
-         String userpass=String.valueOf(jPasswordField_reg_pass.getPassword());
-        if(userpass.equals("72542") || userpass.equals(""))
-        {
-           jPasswordField_reg_pass.setText("72542");
-        }
-    }//GEN-LAST:event_jPasswordField_reg_passFocusLost
-
-    private void jTextField_user_name_regFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_user_name_regFocusLost
-        // TODO add your handling code here:
-         String uservalue = jTextField_user_name_reg.getText().trim().toLowerCase();
-        if(uservalue.equals("user name") || uservalue.equals("") )
-        { 
-            jTextField_user_name_reg.setText("User Name"); 
-        }
-    }//GEN-LAST:event_jTextField_user_name_regFocusLost
-
-    private void jTextField_user_id_regFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_user_id_regFocusLost
-        // TODO add your handling code here:
-         String uservalue = jTextField_user_id_reg.getText().trim().toLowerCase();
-        if(uservalue.equals("user id") || uservalue.equals("") )
-        { 
-            jTextField_user_id_reg.setText("User Id"); 
-        }
-    }//GEN-LAST:event_jTextField_user_id_regFocusLost
-
-    private void jTextField_user_phone_regFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_user_phone_regFocusLost
-        // TODO add your handling code here:
-          String uservalue = jTextField_user_phone_reg.getText().trim().toLowerCase();
-        if(uservalue.equals("phone") || uservalue.equals("") )
-        { 
-            jTextField_user_phone_reg.setText("phone"); 
-        }
-    }//GEN-LAST:event_jTextField_user_phone_regFocusLost
-
-    private void jTextField_user_mailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_user_mailFocusLost
-        // TODO add your handling code here:
-         String uservalue = jTextField_user_mail.getText().trim().toLowerCase();
-        if(uservalue.equals("gmail") || uservalue.equals("") )
-        { 
-            jTextField_user_mail.setText("Gmail"); 
-        }
-    }//GEN-LAST:event_jTextField_user_mailFocusLost
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new Login().setVisible(true);
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton_registationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registationBtnActionPerformed
@@ -555,25 +381,53 @@ public class Registation extends javax.swing.JFrame {
             String sql="INSERT INTO `registation`(`username`, `userid`, `phone`, `gmail`, `pass`, `Rule`) VALUES (?,?,?,?,?,?)";
             p=con.prepareStatement(sql);
             p.setString(1, jTextField_user_name_reg.getText());
-           p.setString(2, jTextField_user_id_reg.getText());
-           p.setString(3, jTextField_user_phone_reg.getText());
-            p.setString(4, jTextField_user_mail.getText());
-            p.setString(5, jPasswordField_reg_pass.getText()); 
-             String selectvalue=jComboBox1_role_reg.getSelectedItem().toString();
-            p.setString(6,selectvalue ); 
-           
-            
-            p.executeUpdate();
-           JOptionPane.showMessageDialog(this," is succesfully registation" );
-            
-            
+            p.setString(2, jTextField_user_id_reg.getText());
+            p.setString(3, jTextField_user_phone_reg.getText());
+            p.setString(4, jTextField_user_mail.getText().toLowerCase());
+            p.setString(5, jPasswordField_reg_pass.getText());
+            String selectvalue=jComboBox1_role_reg.getSelectedItem().toString();
+            p.setString(6,selectvalue );
+//            label.setForeground(Color.RED) 0,204,209,255
+            if("User Name".equals(jTextField_user_name_reg.getText())){
+                
+               jSeparator1.setBackground(new java.awt.Color(252,0,0,225));
+               
+                
+            }
+            if("User Id".equals(jTextField_user_id_reg.getText())){
+               jSeparator2.setBackground(new java.awt.Color(252,0,0,225));
+                
+               
+            }
+            if( "Phone".equals(jTextField_user_phone_reg.getText())){
+               jSeparator5.setBackground(new java.awt.Color(252,0,0,225));
+               
+            }
+            if("gmail".equals(jTextField_user_mail.getText().toLowerCase())){
+                jSeparator6.setBackground(new java.awt.Color(252,0,0,225));
+                
+            }
+          
+            if("72542".equals(jPasswordField_reg_pass.getText())){
+                jSeparator7.setBackground(new java.awt.Color(252,0,0,225));
+               
+            }
+          
+            if(("User Name".equals(jTextField_user_name_reg.getText())) || ("User Id".equals(jTextField_user_id_reg.getText())) || ( "Phone".equals(jTextField_user_phone_reg.getText())) || ("gmail".equals(jTextField_user_mail.getText().toLowerCase())) || ("72542".equals(jPasswordField_reg_pass.getText())) || ("Role".equals(selectvalue))){
+               
+                JOptionPane.showMessageDialog(this," Please Check your Input!! "+"\n"+"Which underline is red!!" );
+                
+            }else{
+                p.executeUpdate();
+                JOptionPane.showMessageDialog(this," Succesfully registation" );
+            }
+
         }catch(Exception e){
-            
-           
-            
-             JOptionPane.showMessageDialog(this," user name not availale or other input is incorrect" );
-            
-            
+
+            System.out.println(e.getMessage());
+
+            JOptionPane.showMessageDialog(this," user name not availale or other input is incorrect" );
+
         }
     }//GEN-LAST:event_jButton_registationBtnActionPerformed
 
@@ -582,6 +436,123 @@ public class Registation extends javax.swing.JFrame {
         String selectvalue=jComboBox1_role_reg.getSelectedItem().toString();
         System.out.println(selectvalue);
     }//GEN-LAST:event_jComboBox1_role_regActionPerformed
+
+    private void jPasswordField_reg_passMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField_reg_passMouseClicked
+        // TODO add your handling code here:
+        String userpass=String.valueOf(jPasswordField_reg_pass.getPassword());
+        if(userpass.equals("72542") || userpass.equals(""))
+        {
+             jSeparator7.setBackground(new java.awt.Color(0,204,209,255));
+            jPasswordField_reg_pass.setText("");
+        }
+    }//GEN-LAST:event_jPasswordField_reg_passMouseClicked
+
+    private void jPasswordField_reg_passFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField_reg_passFocusLost
+        // TODO add your handling code here:
+        String userpass=String.valueOf(jPasswordField_reg_pass.getPassword());
+        if(userpass.equals("72542") || userpass.equals(""))
+        {
+            jPasswordField_reg_pass.setText("72542");
+        }
+    }//GEN-LAST:event_jPasswordField_reg_passFocusLost
+
+    private void jTextField_user_mailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_user_mailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_user_mailActionPerformed
+
+    private void jTextField_user_mailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_user_mailMouseClicked
+        // TODO add your handling code here:
+        String uservalue = jTextField_user_mail.getText().trim().toLowerCase();
+        if(uservalue.equals("gmail") || uservalue.equals("") )
+        {
+            jSeparator6.setBackground(new java.awt.Color(0,204,209,255));
+            jTextField_user_mail.setText("");
+        }
+    }//GEN-LAST:event_jTextField_user_mailMouseClicked
+
+    private void jTextField_user_mailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_user_mailFocusLost
+        // TODO add your handling code here:
+        String uservalue = jTextField_user_mail.getText().trim().toLowerCase();
+        if(uservalue.equals("gmail") || uservalue.equals("") )
+        {
+            jTextField_user_mail.setText("Gmail");
+        }
+    }//GEN-LAST:event_jTextField_user_mailFocusLost
+
+    private void jTextField_user_phone_regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_user_phone_regActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextField_user_phone_regActionPerformed
+
+    private void jTextField_user_phone_regMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_user_phone_regMouseClicked
+        // TODO add your handling code here:
+        String uservalue = jTextField_user_phone_reg.getText().trim();
+        if(uservalue.equals("Phone") )
+        {
+            jSeparator5.setBackground(new java.awt.Color(0,204,209,255));
+            jTextField_user_phone_reg.setText("");
+        }
+    }//GEN-LAST:event_jTextField_user_phone_regMouseClicked
+
+    private void jTextField_user_phone_regFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_user_phone_regFocusLost
+        // TODO add your handling code here:
+        String uservalue = jTextField_user_phone_reg.getText().trim();
+        if(uservalue.equals("Phone") || uservalue.equals("") )
+        {
+            jTextField_user_phone_reg.setText("Phone");
+        }
+    }//GEN-LAST:event_jTextField_user_phone_regFocusLost
+
+    private void jTextField_user_id_regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_user_id_regActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_user_id_regActionPerformed
+
+    private void jTextField_user_id_regMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_user_id_regMouseClicked
+        // TODO add your handling code here:
+        String uservalue = jTextField_user_id_reg.getText().trim().toLowerCase();
+        if(uservalue.equals("user id") || uservalue.equals("") )
+        {
+             jSeparator2.setBackground(new java.awt.Color(0,204,209,255));
+            jTextField_user_id_reg.setText("");
+        }
+    }//GEN-LAST:event_jTextField_user_id_regMouseClicked
+
+    private void jTextField_user_id_regFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_user_id_regFocusLost
+        // TODO add your handling code here:
+        String uservalue = jTextField_user_id_reg.getText().trim().toLowerCase();
+        if(uservalue.equals("user id") || uservalue.equals("") )
+        {
+            jTextField_user_id_reg.setText("User Id");
+        }
+    }//GEN-LAST:event_jTextField_user_id_regFocusLost
+
+    private void jTextField_user_name_regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_user_name_regActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_user_name_regActionPerformed
+
+    private void jTextField_user_name_regMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_user_name_regMouseClicked
+        // TODO add your handling code here:
+        String uservalue = jTextField_user_name_reg.getText().trim().toLowerCase();
+        if(uservalue.equals("user name") || uservalue.equals("") )
+        {
+            jSeparator1.setBackground(new java.awt.Color(0,204,209,255));
+            jTextField_user_name_reg.setText("");
+        }
+    }//GEN-LAST:event_jTextField_user_name_regMouseClicked
+
+    private void jTextField_user_name_regFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_user_name_regFocusLost
+        // TODO add your handling code here:
+        String uservalue = jTextField_user_name_reg.getText().trim().toLowerCase();
+        if(uservalue.equals("user name") || uservalue.equals("") )
+        {
+            jTextField_user_name_reg.setText("User Name");
+        }
+    }//GEN-LAST:event_jTextField_user_name_regFocusLost
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jLabel8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -619,12 +590,14 @@ public class Registation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel background2;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton_registationBtn;
     private javax.swing.JComboBox<String> jComboBox1_role_reg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
