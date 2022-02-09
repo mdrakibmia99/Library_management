@@ -19,6 +19,7 @@ public class Author_login extends javax.swing.JFrame {
     ResultSet r;
     public Author_login() {
         initComponents();
+        
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
              con= DriverManager.getConnection("jdbc:mysql://localhost:3306/library_management","root","");  
@@ -50,13 +51,13 @@ public class Author_login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        num3 = new javax.swing.JSeparator();
         Book_name = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
+        num2 = new javax.swing.JSeparator();
+        number1 = new javax.swing.JLabel();
+        num4 = new javax.swing.JSeparator();
         Book_Author = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
+        num5 = new javax.swing.JSeparator();
         Book_Edition = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         Book_status = new javax.swing.JTextField();
@@ -182,9 +183,9 @@ public class Author_login extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/library_management/icon/search24.png"))); // NOI18N
 
-        jSeparator1.setBackground(new java.awt.Color(0, 204, 209));
-        jSeparator1.setForeground(new java.awt.Color(0, 204, 209));
-        jSeparator1.setOpaque(true);
+        num3.setBackground(new java.awt.Color(0, 204, 209));
+        num3.setForeground(new java.awt.Color(0, 204, 209));
+        num3.setOpaque(true);
 
         Book_name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Book_name.setText("Book Name");
@@ -205,18 +206,18 @@ public class Author_login extends javax.swing.JFrame {
             }
         });
 
-        jSeparator3.setBackground(new java.awt.Color(0, 204, 209));
-        jSeparator3.setForeground(new java.awt.Color(0, 204, 209));
-        jSeparator3.setOpaque(true);
+        num2.setBackground(new java.awt.Color(0, 204, 209));
+        num2.setForeground(new java.awt.Color(0, 204, 209));
+        num2.setOpaque(true);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 204, 209));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Book List Add");
+        number1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        number1.setForeground(new java.awt.Color(0, 204, 209));
+        number1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        number1.setText("Book List Add");
 
-        jSeparator4.setBackground(new java.awt.Color(0, 204, 209));
-        jSeparator4.setForeground(new java.awt.Color(0, 204, 209));
-        jSeparator4.setOpaque(true);
+        num4.setBackground(new java.awt.Color(0, 204, 209));
+        num4.setForeground(new java.awt.Color(0, 204, 209));
+        num4.setOpaque(true);
 
         Book_Author.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Book_Author.setText("Author");
@@ -237,9 +238,9 @@ public class Author_login extends javax.swing.JFrame {
             }
         });
 
-        jSeparator5.setBackground(new java.awt.Color(0, 204, 209));
-        jSeparator5.setForeground(new java.awt.Color(0, 204, 209));
-        jSeparator5.setOpaque(true);
+        num5.setBackground(new java.awt.Color(0, 204, 209));
+        num5.setForeground(new java.awt.Color(0, 204, 209));
+        num5.setOpaque(true);
 
         Book_Edition.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Book_Edition.setText("Edition");
@@ -354,7 +355,7 @@ public class Author_login extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(265, 265, 265)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jSeparator5)
+                                            .addComponent(num5)
                                             .addComponent(Book_Edition, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -371,20 +372,22 @@ public class Author_login extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jSeparator1)
+                                            .addComponent(num3)
                                             .addComponent(Book_name, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jSeparator4)
+                                            .addComponent(num4)
                                             .addComponent(Book_Author, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(317, 317, 317)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(number1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(0, 13, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(284, 284, 284)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(203, 203, 203)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -393,10 +396,8 @@ public class Author_login extends javax.swing.JFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(booklisthide, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -420,13 +421,15 @@ public class Author_login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton2))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
                     .addComponent(booklistshow)
                     .addComponent(booklisthide))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -441,20 +444,20 @@ public class Author_login extends javax.swing.JFrame {
                             .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(number1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(Book_name, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(num3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(Book_Edition, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(num5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addComponent(Book_status, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
@@ -470,7 +473,7 @@ public class Author_login extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Book_Author, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(num4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(21, 21, 21)
                 .addComponent(jButton_registationBtn)
                 .addGap(42, 42, 42)
@@ -522,6 +525,7 @@ public class Author_login extends javax.swing.JFrame {
       tablealldata.setRowSorter(tablesorter);
       tablesorter.setRowFilter(RowFilter.regexFilter(str));
     }
+   
     
     
     private void booklisthideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booklisthideActionPerformed
@@ -759,19 +763,19 @@ public class Author_login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator num2;
+    private javax.swing.JSeparator num3;
+    private javax.swing.JSeparator num4;
+    private javax.swing.JSeparator num5;
+    private javax.swing.JLabel number1;
     private javax.swing.JTextField searchText;
     private javax.swing.JTable tablealldata;
     // End of variables declaration//GEN-END:variables

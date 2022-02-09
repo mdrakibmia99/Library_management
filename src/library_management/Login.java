@@ -417,7 +417,7 @@ public class Login extends javax.swing.JFrame {
             if(selectvalue=="Author"){
             if(r.next()){
                this.setVisible(false);
-                 new Author_login().setVisible(true);
+               new LoginAuthor().setVisible(true);
               
           }else{
                JOptionPane.showMessageDialog(this," User name or Password or Role Incorrect" );

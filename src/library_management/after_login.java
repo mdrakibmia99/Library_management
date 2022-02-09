@@ -4,6 +4,7 @@
  */
 package library_management;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,7 +19,9 @@ public class after_login extends javax.swing.JFrame {
    
     public after_login() {
         initComponents();
-        
+        transparent.setBackground(new java.awt.Color(0,0,0,80));
+        searchText.setBackground(new java.awt.Color(0,0,0,5));
+        //tablealldata.setBackground(new java.awt.Color(0,0,0,150));
         
          try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -51,6 +54,9 @@ public class after_login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        transparent = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -58,6 +64,7 @@ public class after_login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 209), 2));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setBackground(new java.awt.Color(204, 51, 0));
         jLabel8.setFont(new java.awt.Font("Unispace", 1, 18)); // NOI18N
@@ -70,20 +77,25 @@ public class after_login extends javax.swing.JFrame {
                 jLabel8MouseClicked(evt);
             }
         });
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 15, 21, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 204, 209));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Book List");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 62, 171, 21));
 
         jSeparator2.setBackground(new java.awt.Color(0, 204, 209));
         jSeparator2.setForeground(new java.awt.Color(0, 204, 209));
         jSeparator2.setOpaque(true);
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 92, 161, -1));
 
         tablealldata.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tablealldata.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         tablealldata.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -107,6 +119,8 @@ public class after_login extends javax.swing.JFrame {
         tablealldata.setRowHeight(30);
         jScrollPane1.setViewportView(tablealldata);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 770, 240));
+
         booklistshow.setFont(new java.awt.Font("Unispace", 3, 14)); // NOI18N
         booklistshow.setForeground(new java.awt.Color(0, 204, 209));
         booklistshow.setText("Show");
@@ -117,6 +131,7 @@ public class after_login extends javax.swing.JFrame {
                 booklistshowActionPerformed(evt);
             }
         });
+        jPanel1.add(booklistshow, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 107, 69, -1));
 
         booklisthide.setFont(new java.awt.Font("Unispace", 3, 14)); // NOI18N
         booklisthide.setForeground(new java.awt.Color(0, 204, 209));
@@ -128,13 +143,16 @@ public class after_login extends javax.swing.JFrame {
                 booklisthideActionPerformed(evt);
             }
         });
+        jPanel1.add(booklisthide, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 107, 69, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 204, 209));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 178, -1, 30));
 
         searchText.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         searchText.setForeground(new java.awt.Color(0, 204, 209));
+        searchText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         searchText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 209)));
         searchText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,12 +164,14 @@ public class after_login extends javax.swing.JFrame {
                 searchTextKeyReleased(evt);
             }
         });
+        jPanel1.add(searchText, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 215, 182, 30));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 204, 209));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Search Record");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 178, 161, 30));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Unispace", 2, 12)); // NOI18N
@@ -165,76 +185,20 @@ public class after_login extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 60, 81, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/library_management/icon/search24.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 215, 38, 30));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(296, 296, 296)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(286, 286, 286)
-                                        .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(298, 298, 298)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(booklistshow, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(booklisthide, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jSeparator2))))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(booklistshow)
-                    .addComponent(booklisthide))
-                .addGap(46, 46, 46)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(searchText, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addGap(43, 43, 43)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        transparent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(transparent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 560));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bgImgAfterLogin/bg-afterLogin.jpg"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 270));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bgImgAfterLogin/bg-afterLogin.jpg"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 810, 280));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -259,6 +223,8 @@ public class after_login extends javax.swing.JFrame {
     private void booklistshowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booklistshowActionPerformed
         // TODO add your handling code here:
         String sql="SELECT * FROM book_list";
+//       tablealldata.setBackground(new Color(255,255,255,15));
+//        tablealldata.setForeground(Color.white);
        
         try{      
          PreparedStatement p=con.prepareStatement(sql); 
@@ -287,7 +253,7 @@ public class after_login extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel model=(DefaultTableModel)tablealldata.getModel();
           model.setRowCount(0);
-          model.setRowCount(5);
+          model.setRowCount(7);
         
     }//GEN-LAST:event_booklisthideActionPerformed
 
@@ -350,13 +316,16 @@ public class after_login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField searchText;
     private javax.swing.JTable tablealldata;
+    private javax.swing.JPanel transparent;
     // End of variables declaration//GEN-END:variables
 
     
