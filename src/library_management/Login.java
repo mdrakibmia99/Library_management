@@ -420,7 +420,7 @@ public class Login extends javax.swing.JFrame {
                new LoginAuthor().setVisible(true);
               
           }else{
-               JOptionPane.showMessageDialog(this," User name or Password or Role Incorrect" );
+               JOptionPane.showMessageDialog(this," User name or Password or Role Incorrect" ); JOptionPane.showMessageDialog(this," User name or Password or Role Incorrect" ); JOptionPane.showMessageDialog(this," User name or Password or Role Incorrect" ); JOptionPane.showMessageDialog(this, " User name or Password or Role Incorrect");
           }
             
             }else{

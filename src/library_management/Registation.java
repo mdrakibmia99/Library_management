@@ -141,7 +141,7 @@ public class Registation extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Unispace", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 204, 209));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Registation");
+        jLabel7.setText("Registration");
         jLabel7.setOpaque(true);
         jPanel_header.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 49, 141, 35));
 
@@ -300,7 +300,7 @@ public class Registation extends javax.swing.JFrame {
 
         jButton_registationBtn.setFont(new java.awt.Font("Unispace", 3, 14)); // NOI18N
         jButton_registationBtn.setForeground(new java.awt.Color(0, 204, 209));
-        jButton_registationBtn.setText("Registation");
+        jButton_registationBtn.setText("Registration");
         jButton_registationBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 209), 1, true));
         jButton_registationBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton_registationBtn.addActionListener(new java.awt.event.ActionListener() {
