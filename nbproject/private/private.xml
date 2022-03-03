@@ -4,10 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/rkrak/Desktop/varsity/DBMS/lav4/Library_management/src/library_management/Login.java</file>
+            <file>file:/C:/Users/rkrak/Desktop/varsity/DBMS/lav4/Library_management/src/library_management/bookPdf.java</file>
             <file>file:/C:/Users/rkrak/Desktop/varsity/DBMS/lav4/Library_management/src/library_management/LoginAuthor.java</file>
+            <file>file:/C:/Users/rkrak/Desktop/varsity/DBMS/lav4/Library_management/src/library_management/LoginUser.java</file>
             <file>file:/C:/Users/rkrak/Desktop/varsity/DBMS/lav4/Library_management/src/library_management/after_login.java</file>
             <file>file:/C:/Users/rkrak/Desktop/varsity/DBMS/lav4/Library_management/src/library_management/Registation.java</file>
-            <file>file:/C:/Users/rkrak/Desktop/varsity/DBMS/lav4/Library_management/src/library_management/Author_login.java</file>
+            <file>file:/C:/Users/rkrak/Desktop/varsity/DBMS/lav4/Library_management/src/library_management/bookPdfUser.java</file>
         </group>
     </open-files>
 </project-private>

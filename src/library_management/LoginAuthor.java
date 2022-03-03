@@ -4,9 +4,8 @@
  */
 package library_management;
 
+import java.sql.Statement;
 import java.awt.Color;
-import java.sql.DriverManager;
-import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,14 +15,14 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author rkrakib
- */
+//Statement stmt = con.createStatement();  
+//        stmt.execute("UPDATE student SET name='" + jTextField2.getText() + "',marks=" + jTextField3.getText() + " WHERE roll=" + jTextField1.getText() + "");  
+//        JOptionPane.showMessageDialog(null, "Record is updated..."); 
 public class LoginAuthor extends javax.swing.JFrame {
 Connection con;
     PreparedStatement p,pp;
     ResultSet r;
+    Statement st;
     /**
      * Creates new form LoginAuthor
      */
@@ -32,11 +31,14 @@ Connection con;
         afterloginstyle.setVisible(true);
         addbooklistpanel.setVisible(false);
         booklistpanel.setVisible(false);
-        jPanel6.setVisible(false);
-        jPanel7.setVisible(false);
+        deleteBook.setVisible(false);
+        updateBook.setVisible(false);
         userinfo.setVisible(false);
+         bookdetailspanel.setVisible(false);
+        
         
         try{
+            
             Class.forName("com.mysql.cj.jdbc.Driver");
              con= DriverManager.getConnection("jdbc:mysql://localhost:3306/library_management","root","");  
              
@@ -55,13 +57,22 @@ Connection con;
         Book_Edition.setBackground(new java.awt.Color(0,0,0,5));
         Book_Department.setBackground(new java.awt.Color(0,0,0,5));
         Book_status.setBackground(new java.awt.Color(0,0,0,5));
-        Book_quantity.setBackground(new java.awt.Color(0,0,0,5));
+        
+//        updateinpt1.setBackground(new java.awt.Color(0,0,0,5));
+//        updateinpt2.setBackground(new java.awt.Color(0,0,0,5));
+//        updateinpt3.setBackground(new java.awt.Color(0,0,0,5));
+//        updateinpt4.setBackground(new java.awt.Color(0,0,0,5));
+//        updateinpt5.setBackground(new java.awt.Color(0,0,0,5));
+//        updateinpt6.setBackground(new java.awt.Color(0,0,0,5));
+        jPanel16.setBackground(new java.awt.Color(0,0,0,140));
+        
+        bookId.setBackground(new java.awt.Color(0,0,0,5));
         searchText1.setBackground(new java.awt.Color(0,0,0,5));
         searchText.setBackground(new java.awt.Color(0,0,0,5));
+        searchText2.setBackground(new java.awt.Color(0,0,0,5));
         jPanel15.setBackground(new java.awt.Color(0,0,0,60));
-        
-       
-        
+        jPanel6.setBackground(new java.awt.Color(0,0,0,90));
+     jPanel7.setBackground(new java.awt.Color(0,0,0,140));
         
        
     }
@@ -81,13 +92,16 @@ Connection con;
         jPanel9 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        deletBookbtn = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        bookdetailbtn = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -104,10 +118,11 @@ Connection con;
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jButton_registationBtn2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         addbooklistpanel = new javax.swing.JPanel();
         Book_name = new javax.swing.JTextField();
-        Book_quantity = new javax.swing.JTextField();
+        bookId = new javax.swing.JTextField();
         Book_Author = new javax.swing.JTextField();
         Book_Edition = new javax.swing.JTextField();
         Book_status = new javax.swing.JTextField();
@@ -122,8 +137,42 @@ Connection con;
         jLabel15 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        deleteBook = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        searchText2 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablealldata4 = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
+        deletebtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        updateBook = new javax.swing.JPanel();
+        jButton_registationBtn1 = new javax.swing.JButton();
+        updateinpt6 = new javax.swing.JTextField();
+        jSeparator18 = new javax.swing.JSeparator();
+        updateinpt5 = new javax.swing.JTextField();
+        jSeparator17 = new javax.swing.JSeparator();
+        updateinpt4 = new javax.swing.JTextField();
+        jSeparator16 = new javax.swing.JSeparator();
+        updateinpt3 = new javax.swing.JTextField();
+        jSeparator15 = new javax.swing.JSeparator();
+        updateinpt2 = new javax.swing.JTextField();
+        jSeparator14 = new javax.swing.JSeparator();
+        updateinpt1 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        bookdetailspanel = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablealldata3 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablealldata2 = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
         userinfo = new javax.swing.JPanel();
         searchText1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -203,14 +252,14 @@ Connection con;
 
         jPanel10.setBackground(new java.awt.Color(0, 204, 209));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginAuthoricon/trash-9-24.png"))); // NOI18N
-        jLabel3.setText("Delete Book");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        deletBookbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        deletBookbtn.setForeground(new java.awt.Color(255, 255, 255));
+        deletBookbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginAuthoricon/trash-9-24.png"))); // NOI18N
+        deletBookbtn.setText("Delete Book");
+        deletBookbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deletBookbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                deletBookbtnMouseClicked(evt);
             }
         });
 
@@ -220,12 +269,12 @@ Connection con;
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(deletBookbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(92, 92, 92))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(deletBookbtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 253, -1));
@@ -258,7 +307,7 @@ Connection con;
             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 250, 30));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 250, 30));
 
         jPanel11.setBackground(new java.awt.Color(0, 204, 209));
 
@@ -280,14 +329,14 @@ Connection con;
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 250, -1));
+        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 250, -1));
 
         jPanel12.setBackground(new java.awt.Color(0, 204, 209));
 
@@ -317,7 +366,42 @@ Connection con;
             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jPanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 253, -1));
+        jPanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 253, -1));
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("Author");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 110, 40));
+
+        jPanel5.setBackground(new java.awt.Color(0, 204, 209));
+
+        bookdetailbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bookdetailbtn.setForeground(new java.awt.Color(255, 255, 255));
+        bookdetailbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LoginUserIcon/Book-details-24.png"))); // NOI18N
+        bookdetailbtn.setText("Book Details");
+        bookdetailbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bookdetailbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bookdetailbtnMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(bookdetailbtn)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bookdetailbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 250, 30));
 
         jLabel6.setBackground(new java.awt.Color(0, 204, 209));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background/library-background1.jpg"))); // NOI18N
@@ -405,7 +489,7 @@ Connection con;
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "boook_name", "Author", "Edition", "Status", "Quantity", "Department"
+                "boook_name", "Author", "Edition", "Status", "Book Id", "Department"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -421,7 +505,7 @@ Connection con;
         tablealldata.setRowHeight(30);
         jScrollPane1.setViewportView(tablealldata);
 
-        jPanel14.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 700, 330));
+        jPanel14.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 700, 270));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -445,6 +529,19 @@ Connection con;
             }
         });
         jPanel14.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 20, -1));
+
+        jButton_registationBtn2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton_registationBtn2.setFont(new java.awt.Font("Unispace", 3, 14)); // NOI18N
+        jButton_registationBtn2.setForeground(new java.awt.Color(0, 204, 209));
+        jButton_registationBtn2.setText("PDF BOOK");
+        jButton_registationBtn2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 209), 1, true));
+        jButton_registationBtn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_registationBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_registationBtn2ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jButton_registationBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 130, 30));
 
         booklistpanel.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 460));
 
@@ -476,27 +573,27 @@ Connection con;
         });
         addbooklistpanel.add(Book_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 180, 30));
 
-        Book_quantity.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Book_quantity.setForeground(new java.awt.Color(255, 255, 255));
-        Book_quantity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Book_quantity.setText("Quantity");
-        Book_quantity.setBorder(null);
-        Book_quantity.addFocusListener(new java.awt.event.FocusAdapter() {
+        bookId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        bookId.setForeground(new java.awt.Color(255, 255, 255));
+        bookId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        bookId.setText("Book Id");
+        bookId.setBorder(null);
+        bookId.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                Book_quantityFocusLost(evt);
+                bookIdFocusLost(evt);
             }
         });
-        Book_quantity.addMouseListener(new java.awt.event.MouseAdapter() {
+        bookId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Book_quantityMouseClicked(evt);
+                bookIdMouseClicked(evt);
             }
         });
-        Book_quantity.addActionListener(new java.awt.event.ActionListener() {
+        bookId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Book_quantityActionPerformed(evt);
+                bookIdActionPerformed(evt);
             }
         });
-        addbooklistpanel.add(Book_quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 180, 30));
+        addbooklistpanel.add(bookId, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 180, 30));
 
         Book_Author.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Book_Author.setForeground(new java.awt.Color(255, 255, 255));
@@ -646,31 +743,411 @@ Connection con;
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginAuthoricon/library2.jpg"))); // NOI18N
         addbooklistpanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 460));
 
-        jPanel6.setBackground(new java.awt.Color(255, 0, 255));
+        deleteBook.setBackground(new java.awt.Color(255, 0, 255));
+        deleteBook.setPreferredSize(new java.awt.Dimension(720, 460));
+        deleteBook.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 722, Short.MAX_VALUE)
+        jLabel25.setBackground(new java.awt.Color(204, 51, 0));
+        jLabel25.setFont(new java.awt.Font("Unispace", 1, 18)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("X");
+        jLabel25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel25.setOpaque(true);
+        jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel25MouseClicked(evt);
+            }
+        });
+        deleteBook.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 20, -1));
+
+        searchText2.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
+        searchText2.setForeground(new java.awt.Color(255, 255, 255));
+        searchText2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        searchText2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 209)));
+        searchText2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchText2FocusLost(evt);
+            }
+        });
+        searchText2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchText2ActionPerformed(evt);
+            }
+        });
+        searchText2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchText2KeyReleased(evt);
+            }
+        });
+        deleteBook.add(searchText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 180, 30));
+
+        jLabel27.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(0, 204, 209));
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("Enter book Id");
+        jLabel27.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLabel27KeyPressed(evt);
+            }
+        });
+        deleteBook.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 140, 20));
+
+        tablealldata4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tablealldata4.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        tablealldata4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "boook_name", "Author", "Edition", "Status", "Book Id", "Department"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablealldata4.setCellSelectionEnabled(true);
+        tablealldata4.setMinimumSize(new java.awt.Dimension(90, 90));
+        tablealldata4.setRowHeight(30);
+        jScrollPane5.setViewportView(tablealldata4);
+
+        deleteBook.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 700, 320));
+
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        deletebtn.setFont(new java.awt.Font("Unispace", 3, 14)); // NOI18N
+        deletebtn.setForeground(new java.awt.Color(255, 255, 255));
+        deletebtn.setText("Delete");
+        deletebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletebtnActionPerformed(evt);
+            }
+        });
+        jPanel7.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, 30));
+
+        deleteBook.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
+
+        jLabel3.setFont(new java.awt.Font("Unispace", 3, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LoginUserIcon/deletebg.jpg"))); // NOI18N
+        deleteBook.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-7, -7, 730, 470));
+
+        updateBook.setBackground(new java.awt.Color(213, 239, 239));
+        updateBook.setPreferredSize(new java.awt.Dimension(720, 460));
+        updateBook.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton_registationBtn1.setFont(new java.awt.Font("Unispace", 3, 14)); // NOI18N
+        jButton_registationBtn1.setForeground(new java.awt.Color(0, 204, 209));
+        jButton_registationBtn1.setText("Update Book");
+        jButton_registationBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_registationBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_registationBtn1ActionPerformed(evt);
+            }
+        });
+        updateBook.add(jButton_registationBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 140, 30));
+
+        updateinpt6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        updateinpt6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        updateinpt6.setText("Status");
+        updateinpt6.setBorder(null);
+        updateinpt6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                updateinpt6FocusLost(evt);
+            }
+        });
+        updateinpt6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateinpt6MouseClicked(evt);
+            }
+        });
+        updateinpt6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateinpt6ActionPerformed(evt);
+            }
+        });
+        updateBook.add(updateinpt6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 180, 30));
+
+        jSeparator18.setBackground(new java.awt.Color(0, 204, 209));
+        jSeparator18.setForeground(new java.awt.Color(0, 204, 209));
+        jSeparator18.setOpaque(true);
+        updateBook.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 180, 2));
+
+        updateinpt5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        updateinpt5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        updateinpt5.setText("Department");
+        updateinpt5.setBorder(null);
+        updateinpt5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                updateinpt5FocusLost(evt);
+            }
+        });
+        updateinpt5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateinpt5MouseClicked(evt);
+            }
+        });
+        updateinpt5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateinpt5ActionPerformed(evt);
+            }
+        });
+        updateBook.add(updateinpt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 180, 30));
+
+        jSeparator17.setBackground(new java.awt.Color(0, 204, 209));
+        jSeparator17.setForeground(new java.awt.Color(0, 204, 209));
+        jSeparator17.setOpaque(true);
+        updateBook.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 180, 2));
+
+        updateinpt4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        updateinpt4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        updateinpt4.setText("Edition");
+        updateinpt4.setBorder(null);
+        updateinpt4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                updateinpt4FocusLost(evt);
+            }
+        });
+        updateinpt4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateinpt4MouseClicked(evt);
+            }
+        });
+        updateinpt4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateinpt4ActionPerformed(evt);
+            }
+        });
+        updateBook.add(updateinpt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 180, 30));
+
+        jSeparator16.setBackground(new java.awt.Color(0, 204, 209));
+        jSeparator16.setForeground(new java.awt.Color(0, 204, 209));
+        jSeparator16.setOpaque(true);
+        updateBook.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 180, 2));
+
+        updateinpt3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        updateinpt3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        updateinpt3.setText("Author");
+        updateinpt3.setBorder(null);
+        updateinpt3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                updateinpt3FocusLost(evt);
+            }
+        });
+        updateinpt3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateinpt3MouseClicked(evt);
+            }
+        });
+        updateinpt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateinpt3ActionPerformed(evt);
+            }
+        });
+        updateBook.add(updateinpt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 180, 30));
+
+        jSeparator15.setBackground(new java.awt.Color(0, 204, 209));
+        jSeparator15.setForeground(new java.awt.Color(0, 204, 209));
+        jSeparator15.setOpaque(true);
+        updateBook.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 180, 2));
+
+        updateinpt2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        updateinpt2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        updateinpt2.setText("Book Name");
+        updateinpt2.setBorder(null);
+        updateinpt2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                updateinpt2FocusLost(evt);
+            }
+        });
+        updateinpt2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateinpt2MouseClicked(evt);
+            }
+        });
+        updateinpt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateinpt2ActionPerformed(evt);
+            }
+        });
+        updateBook.add(updateinpt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 180, 30));
+
+        jSeparator14.setBackground(new java.awt.Color(0, 204, 209));
+        jSeparator14.setForeground(new java.awt.Color(0, 204, 209));
+        jSeparator14.setOpaque(true);
+        updateBook.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 180, 2));
+
+        updateinpt1.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
+        updateinpt1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        updateinpt1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 209)));
+        updateinpt1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                updateinpt1FocusLost(evt);
+            }
+        });
+        updateinpt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateinpt1ActionPerformed(evt);
+            }
+        });
+        updateinpt1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                updateinpt1KeyReleased(evt);
+            }
+        });
+        updateBook.add(updateinpt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 180, 30));
+
+        jLabel28.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(0, 204, 209));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("Enter book Id");
+        jLabel28.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLabel28KeyPressed(evt);
+            }
+        });
+        updateBook.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 140, 20));
+
+        jLabel26.setBackground(new java.awt.Color(204, 51, 0));
+        jLabel26.setFont(new java.awt.Font("Unispace", 1, 18)); // NOI18N
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("X");
+        jLabel26.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel26.setOpaque(true);
+        jLabel26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel26MouseClicked(evt);
+            }
+        });
+        updateBook.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 20, 30));
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
-        jPanel7.setBackground(new java.awt.Color(50, 255, 255));
+        updateBook.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 460));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 688, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
-        );
+        jLabel20.setFont(new java.awt.Font("Unispace", 3, 36)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 51));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginAuthoricon/library1.jpg"))); // NOI18N
+        jLabel20.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        updateBook.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, 0, 730, 460));
+
+        bookdetailspanel.setPreferredSize(new java.awt.Dimension(720, 460));
+        bookdetailspanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setBackground(new java.awt.Color(204, 51, 0));
+        jLabel21.setFont(new java.awt.Font("Unispace", 1, 18)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("X");
+        jLabel21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel21.setOpaque(true);
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel21MouseClicked(evt);
+            }
+        });
+        bookdetailspanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 20, -1));
+
+        jLabel24.setFont(new java.awt.Font("Unispace", 3, 24)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("Return Details");
+        bookdetailspanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 210, 30));
+
+        jLabel23.setFont(new java.awt.Font("Unispace", 3, 24)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("Issue Details");
+        bookdetailspanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 210, 30));
+
+        tablealldata3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tablealldata3.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        tablealldata3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Book Id", "User Id", "Issue Date", "Due Date"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablealldata3.setCellSelectionEnabled(true);
+        tablealldata3.setMinimumSize(new java.awt.Dimension(90, 90));
+        tablealldata3.setRowHeight(30);
+        jScrollPane4.setViewportView(tablealldata3);
+
+        bookdetailspanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 660, 180));
+
+        tablealldata2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tablealldata2.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        tablealldata2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Book Id", "User Id", "Issue Date", "Due Date", "Return Date"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablealldata2.setCellSelectionEnabled(true);
+        tablealldata2.setMinimumSize(new java.awt.Dimension(90, 90));
+        tablealldata2.setRowHeight(30);
+        jScrollPane3.setViewportView(tablealldata2);
+
+        bookdetailspanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 660, 170));
+
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        bookdetailspanel.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 460));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bgImgAfterLogin/bg-afterLogin.jpg"))); // NOI18N
+        jLabel22.setText("jLabel22");
+        bookdetailspanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 460));
 
         userinfo.setBackground(new java.awt.Color(0, 102, 51));
         userinfo.setPreferredSize(new java.awt.Dimension(710, 460));
@@ -754,37 +1231,41 @@ Connection con;
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(booklistpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(booklistpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(updateBook, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 722, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(deleteBook, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 722, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(userinfo, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(addbooklistpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(afterloginstyle, javax.swing.GroupLayout.PREFERRED_SIZE, 722, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(bookdetailspanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(booklistpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(updateBook, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(deleteBook, javax.swing.GroupLayout.PREFERRED_SIZE, 462, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(userinfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(addbooklistpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(afterloginstyle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(bookdetailspanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -815,16 +1296,19 @@ Connection con;
         // TODO add your handling code here:
         bookLlistTable();
         booklistpanel.setVisible(true);
-        jPanel6.setVisible(false);
-        jPanel7.setVisible(false);
+        updateBook.setVisible(false);
         userinfo.setVisible(false);
         addbooklistpanel.setVisible(false);
+        deleteBook.setVisible(false);
+        bookdetailspanel.setVisible(false);
+        afterloginstyle.setVisible(false);
         //click time color change
         Booklist.setForeground(Color.orange);
         jLabel2.setForeground(Color.white);
-        jLabel3.setForeground(Color.white);
+        deletBookbtn.setForeground(Color.white);
         jLabel4.setForeground(Color.white);
         jLabel5.setForeground(Color.white);
+        bookdetailbtn.setForeground(Color.white);
         
         
         
@@ -931,28 +1415,28 @@ Connection con;
         // TODO add your handling code here:
     }//GEN-LAST:event_Book_statusActionPerformed
 
-    private void Book_quantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Book_quantityFocusLost
+    private void bookIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bookIdFocusLost
 
-        String uservalue = Book_quantity.getText().trim().toLowerCase();
-        if(uservalue.equals("quantity") || uservalue.equals("") )
+        String uservalue = bookId.getText().trim().toLowerCase();
+        if(uservalue.equals("book id") || uservalue.equals("") )
         {
-            Book_quantity.setText("Quantity");
+            bookId.setText("Book Id");
         }
-    }//GEN-LAST:event_Book_quantityFocusLost
+    }//GEN-LAST:event_bookIdFocusLost
 
-    private void Book_quantityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Book_quantityMouseClicked
+    private void bookIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookIdMouseClicked
 
-        String uservalue = Book_quantity.getText().trim().toLowerCase();
-        if(uservalue.equals("quantity") || uservalue.equals("") )
+        String uservalue = bookId.getText().trim().toLowerCase();
+        if(uservalue.equals("book id") )
         {
-            Book_quantity.setText("");
+            bookId.setText("");
         }
 
-    }//GEN-LAST:event_Book_quantityMouseClicked
+    }//GEN-LAST:event_bookIdMouseClicked
 
-    private void Book_quantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Book_quantityActionPerformed
+    private void bookIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Book_quantityActionPerformed
+    }//GEN-LAST:event_bookIdActionPerformed
 
     private void Book_DepartmentFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Book_DepartmentFocusLost
         String uservalue = Book_Department.getText().trim().toLowerCase();
@@ -985,7 +1469,7 @@ Connection con;
             p.setString(2, Book_Author.getText());
             p.setString(3, Book_Edition.getText());
             p.setString(4, Book_status.getText());
-            p.setString(5, Book_quantity.getText());
+            p.setString(5, bookId.getText());
             p.setString(6, Book_Department.getText());
             p.executeUpdate();
             JOptionPane.showMessageDialog(this," Add book Succesfull" );
@@ -994,25 +1478,28 @@ Connection con;
             Book_Author.setText("Author");
             Book_Edition.setText("Edition");
             Book_status.setText("Status");
-            Book_quantity.setText("Quantity");
+            bookId.setText("Book Id");
             Book_Department.setText("Department");
 
         }catch(Exception e){
+            JOptionPane.showMessageDialog(this," Plese check Input!!" );
         }
     }//GEN-LAST:event_jButton_registationBtnActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         addbooklistpanel.setVisible(true);
         booklistpanel.setVisible(false);
-        jPanel6.setVisible(false);
-        jPanel7.setVisible(false);
         userinfo.setVisible(false);
+        deleteBook.setVisible(false);
+        bookdetailspanel.setVisible(false);
+        afterloginstyle.setVisible(false);
         //click time color change
         Booklist.setForeground(Color.white);
         jLabel2.setForeground(Color.orange);
-        jLabel3.setForeground(Color.white);
+        deletBookbtn.setForeground(Color.white);
         jLabel4.setForeground(Color.white);
         jLabel5.setForeground(Color.white);
+        bookdetailbtn.setForeground(Color.white);
         
     }//GEN-LAST:event_jLabel2MouseClicked
 
@@ -1025,14 +1512,17 @@ Connection con;
         userinfo.setVisible(true);
         addbooklistpanel.setVisible(false);
         booklistpanel.setVisible(false);
-        jPanel6.setVisible(false);
-        jPanel7.setVisible(false);
+        updateBook.setVisible(false);
+        deleteBook.setVisible(false);
+        bookdetailspanel.setVisible(false);
+        afterloginstyle.setVisible(false);
          //click time color change
         Booklist.setForeground(Color.white);
         jLabel2.setForeground(Color.white);
-        jLabel3.setForeground(Color.white);
+        deletBookbtn.setForeground(Color.white);
         jLabel4.setForeground(Color.white);
         jLabel5.setForeground(Color.orange);
+        bookdetailbtn.setForeground(Color.white);
          String sql="SELECT * FROM registation";
        
         try{      
@@ -1060,22 +1550,44 @@ Connection con;
        
     }//GEN-LAST:event_searchText1KeyReleased
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-       //click time color change
+    private void deletBookbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletBookbtnMouseClicked
+      deletebookLlistTable();
+        userinfo.setVisible(false);
+        addbooklistpanel.setVisible(false);
+        booklistpanel.setVisible(false);
+        updateBook.setVisible(false);
+        deleteBook.setVisible(true);
+        bookdetailspanel.setVisible(false);
+        afterloginstyle.setVisible(false);
+        
         Booklist.setForeground(Color.white);
         jLabel2.setForeground(Color.white);
-        jLabel3.setForeground(Color.orange);
+        deletBookbtn.setForeground(Color.orange);
         jLabel4.setForeground(Color.white);
         jLabel5.setForeground(Color.white);
-    }//GEN-LAST:event_jLabel3MouseClicked
+        bookdetailbtn.setForeground(Color.white);
+        
+        
+        //data table add
+        
+    }//GEN-LAST:event_deletBookbtnMouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-       //click time color change
+       
+         userinfo.setVisible(false);
+        addbooklistpanel.setVisible(false);
+        booklistpanel.setVisible(false);
+        deleteBook.setVisible(false);
+        updateBook.setVisible(true);
+         bookdetailspanel.setVisible(false);
+         afterloginstyle.setVisible(false);
+        
         Booklist.setForeground(Color.white);
         jLabel2.setForeground(Color.white);
-        jLabel3.setForeground(Color.white);
+        deletBookbtn.setForeground(Color.white);
         jLabel4.setForeground(Color.orange);
         jLabel5.setForeground(Color.white);
+        bookdetailbtn.setForeground(Color.white);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
@@ -1097,6 +1609,303 @@ Connection con;
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void bookdetailbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookdetailbtnMouseClicked
+       bookdetailspanel.setVisible(true);
+       userinfo.setVisible(false);
+        addbooklistpanel.setVisible(false);
+        booklistpanel.setVisible(false);
+        deleteBook.setVisible(false);
+        updateBook.setVisible(false);
+        afterloginstyle.setVisible(false);
+
+        bookdetailbtn.setForeground(Color.orange);
+        Booklist.setForeground(Color.white);
+        jLabel2.setForeground(Color.white);
+        deletBookbtn.setForeground(Color.white);
+        jLabel4.setForeground(Color.white);
+        jLabel5.setForeground(Color.white);
+        
+        
+        
+        String sql="SELECT * FROM `issuebook`";
+     
+        try{      
+            
+          p=con.prepareStatement(sql); 
+         ResultSet r1= p.executeQuery();
+          DefaultTableModel model1=(DefaultTableModel)tablealldata3.getModel();
+          model1.setRowCount(0);
+          
+          while(r1.next()){
+          model1.addRow(new String[]{ r1.getString(1),r1.getString(2),r1.getString(3),r1.getString(4)});
+          }
+        }
+        catch(Exception e){System.out.println("eroor"+ e.getMessage());}
+        
+    String sql2="SELECT * FROM `returnbook`";
+       
+        try{      
+          p=con.prepareStatement(sql2); 
+         ResultSet r2= p.executeQuery();
+          DefaultTableModel model2=(DefaultTableModel)tablealldata2.getModel();
+          model2.setRowCount(0);
+          
+          while(r2.next()){
+          model2.addRow(new String[]{ r2.getString(1),r2.getString(2),r2.getString(3),r2.getString(4),r2.getString(5)});
+          }
+        }
+        catch(Exception e){System.out.println("eroor"+ e.getMessage());}
+        
+    
+        
+    }//GEN-LAST:event_bookdetailbtnMouseClicked
+
+    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel21MouseClicked
+
+    private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
+       System.exit(0);
+    }//GEN-LAST:event_jLabel25MouseClicked
+
+    private void searchText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchText2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchText2ActionPerformed
+
+    private void searchText2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchText2KeyReleased
+        String searchString=searchText2.getText().trim();
+        fordeleteSearch(searchString);
+    }//GEN-LAST:event_searchText2KeyReleased
+
+    private void jLabel27KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel27KeyPressed
+      
+    }//GEN-LAST:event_jLabel27KeyPressed
+
+    private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
+       
+      
+        try{
+            
+             st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM `book_list` WHERE  `Quantity`='"+searchText2.getText()+"'");
+            
+            
+            if(rs.next()){
+            p=con.prepareStatement("DELETE FROM book_list WHERE Quantity=" + searchText2.getText() + "");
+             p.execute();
+            
+         JOptionPane.showMessageDialog(this, "Record deleted!!!"); 
+       searchText2.setText(" ");
+            
+            }else{
+            JOptionPane.showMessageDialog(this, "Book Id Not Valid!!!"); 
+            
+            }
+            
+            
+
+             
+      
+          
+        }catch(Exception e){
+        JOptionPane.showMessageDialog(this,"Input Valid Book id");
+ System.out.println(e.getMessage());
+        }
+         
+    }//GEN-LAST:event_deletebtnActionPerformed
+
+    private void searchText2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchText2FocusLost
+        deletebookLlistTable();  
+    }//GEN-LAST:event_searchText2FocusLost
+
+    private void updateinpt1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_updateinpt1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateinpt1FocusLost
+
+    private void updateinpt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateinpt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateinpt1ActionPerformed
+
+    private void updateinpt1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_updateinpt1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateinpt1KeyReleased
+
+    private void jLabel28KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel28KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel28KeyPressed
+
+    private void updateinpt2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_updateinpt2FocusLost
+        
+          String uservalue = updateinpt2.getText().trim().toLowerCase();
+        if(uservalue.equals("Book Name") || uservalue.equals("") )
+        {
+            updateinpt2.setText("Book Name");
+        }
+        
+        
+    }//GEN-LAST:event_updateinpt2FocusLost
+
+    private void updateinpt2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateinpt2MouseClicked
+         String uservalue = updateinpt2.getText().trim().toLowerCase();
+        if(uservalue.equals("book name") || uservalue.equals("") )
+        {
+            updateinpt2.setText("");
+        }
+    }//GEN-LAST:event_updateinpt2MouseClicked
+
+    private void updateinpt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateinpt2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateinpt2ActionPerformed
+
+    private void updateinpt3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_updateinpt3FocusLost
+       String uservalue = updateinpt3.getText().trim();
+        if(uservalue.equals("Author") || uservalue.equals("") )
+        {
+            updateinpt3.setText("Author");
+        }
+    }//GEN-LAST:event_updateinpt3FocusLost
+
+    private void updateinpt3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateinpt3MouseClicked
+        String uservalue = updateinpt3.getText().trim();
+        if(uservalue.equals("Author") || uservalue.equals("") )
+        {
+            updateinpt3.setText("");
+        }
+    }//GEN-LAST:event_updateinpt3MouseClicked
+
+    private void updateinpt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateinpt3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateinpt3ActionPerformed
+
+    private void updateinpt4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_updateinpt4FocusLost
+        String uservalue = updateinpt4.getText().trim();
+        if(uservalue.equals("Edition") || uservalue.equals("") )
+        {
+            updateinpt4.setText("Edition");
+        }
+    }//GEN-LAST:event_updateinpt4FocusLost
+
+    private void updateinpt4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateinpt4MouseClicked
+        String uservalue = updateinpt4.getText().trim();
+        if(uservalue.equals("Edition") || uservalue.equals("") )
+        {
+            updateinpt4.setText("");
+        }
+    }//GEN-LAST:event_updateinpt4MouseClicked
+
+    private void updateinpt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateinpt4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateinpt4ActionPerformed
+
+    private void updateinpt5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_updateinpt5FocusLost
+        String uservalue = updateinpt5.getText().trim();
+        if(uservalue.equals("Department") || uservalue.equals("") )
+        {
+            updateinpt5.setText("Department");
+        }
+    }//GEN-LAST:event_updateinpt5FocusLost
+
+    private void updateinpt5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateinpt5MouseClicked
+       String uservalue = updateinpt5.getText().trim();
+        if(uservalue.equals("Department") || uservalue.equals("") )
+        {
+            updateinpt5.setText("");
+        }
+    }//GEN-LAST:event_updateinpt5MouseClicked
+
+    private void updateinpt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateinpt5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateinpt5ActionPerformed
+
+    private void updateinpt6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_updateinpt6FocusLost
+        String uservalue = updateinpt6.getText().trim();
+        if(uservalue.equals("Status") || uservalue.equals("") )
+        {
+            updateinpt6.setText("Status");
+        }
+    }//GEN-LAST:event_updateinpt6FocusLost
+
+    private void updateinpt6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateinpt6MouseClicked
+       String uservalue = updateinpt6.getText().trim();
+        if(uservalue.equals("Status") || uservalue.equals("") )
+        {
+            updateinpt6.setText("");
+        }
+    }//GEN-LAST:event_updateinpt6MouseClicked
+
+    private void updateinpt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateinpt6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateinpt6ActionPerformed
+
+    private void jButton_registationBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registationBtn1ActionPerformed
+        String Bookid=updateinpt1.getText();
+            int intBookid = Integer.parseInt(Bookid);
+        
+        try{
+            st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM `book_list` WHERE  `Quantity`='"+intBookid+"'");
+
+
+//             String sql1="SELECT * FROM `book_list` WHERE  `Quantity`=?";
+//            p=con.prepareStatement(sql1);
+//            p.setString(1,updateinpt1.getText() );
+//            r=p.executeQuery();
+            if(rs.next()){
+            
+            String sql= "UPDATE book_list SET boook_name= ?, Author=? ,Edition=? , Status=?, Department=? WHERE Quantity=?";
+            p=con.prepareStatement(sql);
+            p.setString(1, updateinpt2.getText());
+            p.setString(2, updateinpt3.getText());
+            p.setString(3, updateinpt4.getText());
+            p.setString(4, updateinpt6.getText());
+            p.setString(5, updateinpt5.getText());
+           
+              p.setInt(6,intBookid );
+            p.execute();
+
+        JOptionPane.showMessageDialog(this, "Record Updated...");
+                
+            }else{
+            
+            JOptionPane.showMessageDialog(this, "Please Enter Valid Book Id");
+            }
+
+            
+            
+           
+
+      
+          
+        }catch(Exception e){
+        JOptionPane.showMessageDialog(this,"error");
+ System.out.println(e.getMessage());
+        }
+
+        
+        
+//      try{
+//      
+//          Statement stmt = con.createStatement();  
+//        stmt.execute("UPDATE book_list SET boook_name=" + updateinpt2.getText() + ","  +"Author=" + updateinpt3.getText() +",   "Edition=" + updateinpt4.getText() +   ",'Status=" + updateinpt6.getText() +   ",'Department=" + updateinpt5.getText() +   " WHERE Quantity=" + updateinpt1.getText() + "");  
+//        JOptionPane.showMessageDialog(this, "Record is updated..."); 
+//      }catch(Exception e){
+//          System.out.println(e.getMessage());
+//      JOptionPane.showMessageDialog(this, "plese Check Book Id"); 
+//      }  
+        
+        
+    }//GEN-LAST:event_jButton_registationBtn1ActionPerformed
+
+    private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel26MouseClicked
+
+    private void jButton_registationBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registationBtn2ActionPerformed
+        this.setVisible(false);
+        new bookPdf().setVisible(true);
+
+    }//GEN-LAST:event_jButton_registationBtn2ActionPerformed
   
     public void forsearch(String str){
       DefaultTableModel  model=(DefaultTableModel)tablealldata.getModel();
@@ -1108,6 +1917,12 @@ Connection con;
       DefaultTableModel  model=(DefaultTableModel)tablealldata1.getModel();
       TableRowSorter<DefaultTableModel> tablesorter= new TableRowSorter<>(model);
       tablealldata1.setRowSorter(tablesorter);
+      tablesorter.setRowFilter(RowFilter.regexFilter(str));
+    }
+     public void fordeleteSearch(String str){
+      DefaultTableModel  model=(DefaultTableModel)tablealldata4.getModel();
+      TableRowSorter<DefaultTableModel> tablesorter= new TableRowSorter<>(model);
+      tablealldata4.setRowSorter(tablesorter);
       tablesorter.setRowFilter(RowFilter.regexFilter(str));
     }
     
@@ -1128,6 +1943,26 @@ Connection con;
         }
         catch(Exception e){System.out.println("eroor"+ e.getMessage());}
      }
+    
+    
+    
+    public void deletebookLlistTable(){
+     
+     String sql="SELECT * FROM book_list";
+
+        try{
+             p=con.prepareStatement(sql);
+             r= p.executeQuery();
+            DefaultTableModel model=(DefaultTableModel)tablealldata4.getModel();
+            model.setRowCount(0);
+
+            while(r.next()){
+                model.addRow(new String[]{ r.getString(1),r.getString(2),r.getString(3),r.getString(4),r.getString(5),r.getString(6)});
+            }
+        }
+        catch(Exception e){System.out.println("eroor"+ e.getMessage());}
+     }
+    
     /**
      * @param args the command line arguments
      */
@@ -1168,13 +2003,20 @@ Connection con;
     private javax.swing.JTextField Book_Department;
     private javax.swing.JTextField Book_Edition;
     private javax.swing.JTextField Book_name;
-    private javax.swing.JTextField Book_quantity;
     private javax.swing.JTextField Book_status;
     private javax.swing.JLabel Booklist;
     private javax.swing.JPanel addbooklistpanel;
     private javax.swing.JPanel afterloginstyle;
+    private javax.swing.JTextField bookId;
+    private javax.swing.JLabel bookdetailbtn;
+    private javax.swing.JPanel bookdetailspanel;
     private javax.swing.JPanel booklistpanel;
+    private javax.swing.JLabel deletBookbtn;
+    private javax.swing.JPanel deleteBook;
+    private javax.swing.JButton deletebtn;
     private javax.swing.JButton jButton_registationBtn;
+    private javax.swing.JButton jButton_registationBtn1;
+    private javax.swing.JButton jButton_registationBtn2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1187,6 +2029,16 @@ Connection con;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1201,25 +2053,46 @@ Connection con;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField searchText;
     private javax.swing.JTextField searchText1;
+    private javax.swing.JTextField searchText2;
     private javax.swing.JTable tablealldata;
     private javax.swing.JTable tablealldata1;
+    private javax.swing.JTable tablealldata2;
+    private javax.swing.JTable tablealldata3;
+    private javax.swing.JTable tablealldata4;
+    private javax.swing.JPanel updateBook;
+    private javax.swing.JTextField updateinpt1;
+    private javax.swing.JTextField updateinpt2;
+    private javax.swing.JTextField updateinpt3;
+    private javax.swing.JTextField updateinpt4;
+    private javax.swing.JTextField updateinpt5;
+    private javax.swing.JTextField updateinpt6;
     private javax.swing.JPanel userinfo;
     // End of variables declaration//GEN-END:variables
 }

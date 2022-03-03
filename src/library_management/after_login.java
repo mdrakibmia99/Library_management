@@ -223,8 +223,6 @@ public class after_login extends javax.swing.JFrame {
     private void booklistshowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booklistshowActionPerformed
         // TODO add your handling code here:
         String sql="SELECT * FROM book_list";
-//       tablealldata.setBackground(new Color(255,255,255,15));
-//        tablealldata.setForeground(Color.white);
        
         try{      
          PreparedStatement p=con.prepareStatement(sql); 

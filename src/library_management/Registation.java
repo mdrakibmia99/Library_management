@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package library_management;
-import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Connection;
@@ -383,7 +382,7 @@ public class Registation extends javax.swing.JFrame {
             p.setString(1, jTextField_user_name_reg.getText());
             p.setString(2, jTextField_user_id_reg.getText());
             p.setString(3, jTextField_user_phone_reg.getText());
-            p.setString(4, jTextField_user_mail.getText().toLowerCase());
+            p.setString(4, jTextField_user_mail.getText());
             p.setString(5, jPasswordField_reg_pass.getText());
             String selectvalue=jComboBox1_role_reg.getSelectedItem().toString();
             p.setString(6,selectvalue );
@@ -415,10 +414,20 @@ public class Registation extends javax.swing.JFrame {
           
             if(("User Name".equals(jTextField_user_name_reg.getText())) || ("User Id".equals(jTextField_user_id_reg.getText())) || ( "Phone".equals(jTextField_user_phone_reg.getText())) || ("gmail".equals(jTextField_user_mail.getText().toLowerCase())) || ("72542".equals(jPasswordField_reg_pass.getText())) || ("Role".equals(selectvalue))){
                
+                if(("Role".equals(selectvalue))){
+                JOptionPane.showMessageDialog(this,"Choise a Role!!" );
+                }else{
                 JOptionPane.showMessageDialog(this," Please Check your Input!! "+"\n"+"Which underline is red!!" );
+                }
+                
                 
             }else{
                 p.executeUpdate();
+                jTextField_user_name_reg.setText("User Name");
+                jTextField_user_id_reg.setText("User Id");
+                jTextField_user_phone_reg.setText("Phone");
+                jTextField_user_mail.setText("Gmail");
+                jPasswordField_reg_pass.setText("72542");
                 JOptionPane.showMessageDialog(this," Succesfully registation" );
             }
 

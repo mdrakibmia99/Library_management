@@ -30,9 +30,10 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         jTextField_user_name.setBackground(new java.awt.Color(0,0,0,3));
-        login_background.setBackground(new java.awt.Color(0,0,0,130));
+        login_background.setBackground(new java.awt.Color(20,50,60,130));
         jPasswordField_password.setBackground(new java.awt.Color(0,0,0,3));
         jButton3_reg_page.setBackground(new java.awt.Color(0,0,0,3));
+        jButton1.setBackground(new java.awt.Color(0,0,0,140));
         
     }
 
@@ -308,7 +309,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("Create Account:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, -1, -1));
 
-        login_background.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 209)));
+        login_background.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         login_background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton3_reg_page.setBackground(new java.awt.Color(255, 255, 255));
@@ -408,25 +409,25 @@ public class Login extends javax.swing.JFrame {
             Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/library_management","root","");
             String sql="SELECT * FROM `registation` WHERE  `username`=? and `pass`=? and  `Rule`=?";
             p=con.prepareStatement(sql);
-            p.setString(1,jTextField_user_name.getText().toLowerCase() );
+            p.setString(1,jTextField_user_name.getText() );
             p.setString(2,jPasswordField_password.getText());
              String selectvalue=jComboBox_role_login.getSelectedItem().toString();
               p.setString(3,selectvalue);
             r=p.executeQuery();
             
-            if(selectvalue=="Author"){
+            if("Author".equals(selectvalue)){
             if(r.next()){
                this.setVisible(false);
                new LoginAuthor().setVisible(true);
               
           }else{
-               JOptionPane.showMessageDialog(this," User name or Password or Role Incorrect" ); JOptionPane.showMessageDialog(this," User name or Password or Role Incorrect" ); JOptionPane.showMessageDialog(this," User name or Password or Role Incorrect" ); JOptionPane.showMessageDialog(this, " User name or Password or Role Incorrect");
+               JOptionPane.showMessageDialog(this," User name or Password or Role Incorrect" ); 
           }
             
             }else{
             if(r.next()){
                this.setVisible(false);
-                 new after_login().setVisible(true);
+                 new LoginUser().setVisible(true);
               
           }else{
                JOptionPane.showMessageDialog(this," User name or Password or Role Incorrect" );
